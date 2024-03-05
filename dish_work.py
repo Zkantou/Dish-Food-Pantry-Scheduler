@@ -3,6 +3,7 @@ from tkinter import ttk, messagebox, simpledialog
 
 class StudentSchedulerApp:
     def __init__(self, root):
+        # Welcome to the Dish Food Pantry Scheduler!
         self.root = root
         self.root.title("Dish Food Pantry Scheduler")
         
@@ -16,7 +17,7 @@ class StudentSchedulerApp:
         notebook = ttk.Notebook(self.root)
         notebook.pack(expand=True, fill='both')
 
-        # Create a frame for the "Add Student" tab
+        # Here where the magic begins, Create a frame for the "Add Student" tab 
         add_student_frame = ttk.Frame(notebook, padding="10")
         notebook.add(add_student_frame, text='Add Student')
 
@@ -28,6 +29,8 @@ class StudentSchedulerApp:
         ttk.Label(add_student_frame, text="Hours per week:").grid(row=1, column=0, sticky=tk.W, padx=5, pady=5)
         self.hours_entry = ttk.Entry(add_student_frame, width=5)
         self.hours_entry.grid(row=1, column=1, sticky=tk.W, padx=5, pady=5)
+
+        # adding students is cooler than adding salt
 
         add_student_button = ttk.Button(add_student_frame, text="Add Student", command=self.add_student)
         add_student_button.grid(row=2, column=0, columnspan=2, pady=10)
@@ -66,10 +69,10 @@ class StudentSchedulerApp:
             messagebox.showerror("Invalid Input", "Please enter a name for the student.")
             return
         
-        # Get student availability
+        # student availability
         availability = self.get_availability()
 
-        # Store the student information
+        # Store student information
         self.students.append({'name': name, 'hours': hours, 'availability': availability})
         
         # Clear the entry fields for next input
@@ -118,7 +121,7 @@ class StudentSchedulerApp:
             'G Building': 1
         }
 
-        # Create a list of all possible shifts for convenience
+        # Create a list of all possible shifts
         all_shifts = [(office, day) for office in office_hours for day in office_hours[office]]
 
         # Assign students to shifts
